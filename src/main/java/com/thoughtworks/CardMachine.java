@@ -3,10 +3,15 @@ package com.thoughtworks;
 import java.util.Random;
 
 public class CardMachine {
+
     private Card cardFormat;
 
     public CardMachine() {
 
+    }
+
+    public CardMachine(Card cardFormat) {
+        this.cardFormat = cardFormat;
     }
 
     public Card getCardFormat() {
@@ -17,15 +22,11 @@ public class CardMachine {
         this.cardFormat = cardFormat;
     }
 
-    public CardMachine(Card cardFormat) {
-        this.cardFormat = cardFormat;
-    }
-
-    public String drawCard(Card cardFormat) {
+    public String drawCard() {
         Random r = new Random();
         String[] pattern = cardFormat.getPattern();
         String[] figure = cardFormat.getFigure();
-        return pattern[r.nextInt((pattern.length))]
-            + pattern[r.nextInt(figure.length)];
+        return pattern[r.nextInt(pattern.length)]
+            + figure[r.nextInt(figure.length)];
     }
 }
