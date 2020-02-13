@@ -11,6 +11,10 @@ public class App {
     Scanner sc = new Scanner(System.in);
     System.out.println("请输入您想抽取的卡片数：");
     int numOfCard = sc.nextInt();
+    while (numOfCard > 52 || numOfCard < 1) {
+      System.out.println("不在范围(1~52)内哦～请重新输入：");
+      numOfCard = sc.nextInt();
+    }
     HashSet<String> cardMap = new HashSet<>();
 
     while (numOfCard != cardMap.size()) {
