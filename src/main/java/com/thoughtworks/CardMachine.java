@@ -1,5 +1,6 @@
 package com.thoughtworks;
 
+import java.util.HashSet;
 import java.util.Random;
 
 public class CardMachine {
@@ -22,11 +23,15 @@ public class CardMachine {
         this.cardFormat = cardFormat;
     }
 
-    public String drawCard() {
+    public HashSet<String> drawCard(int numOfCard) {
+        HashSet<String> cardMap = new HashSet<>();
         Random r = new Random();
-        String[] pattern = cardFormat.getPattern();
-        String[] figure = cardFormat.getFigure();
-        return pattern[r.nextInt(pattern.length)]
-            + figure[r.nextInt(figure.length)];
+        while (numOfCard != cardMap.size()) {
+            String[] pattern = cardFormat.getPattern();
+            String[] figure = cardFormat.getFigure();
+            cardMap.add(pattern[r.nextInt(pattern.length)]
+                + figure[r.nextInt(figure.length)]);
+        }
+        return cardMap;
     }
 }

@@ -15,11 +15,7 @@ public class App {
       System.out.println("不在范围(1~52)内哦～请重新输入：");
       numOfCard = sc.nextInt();
     }
-    HashSet<String> cardMap = new HashSet<>();
-
-    while (numOfCard != cardMap.size()) {
-      cardMap.add(machine.drawCard());
-    }
+    HashSet<String> cardMap = machine.drawCard(numOfCard);
 
     System.out.println("请查收您的卡片:) ");
     System.out.println(String.join(" ", cardMap));
