@@ -7,10 +7,6 @@ public class CardMachine {
 
     private Card cardFormat;
 
-    public CardMachine() {
-
-    }
-
     public CardMachine(Card cardFormat) {
         this.cardFormat = cardFormat;
     }
@@ -27,9 +23,9 @@ public class CardMachine {
         HashSet<String> cardMap = new HashSet<>();
         Random r = new Random();
         while (numOfCard != cardMap.size()) {
-            String[] pattern = cardFormat.getPattern();
+            CardPattern[] pattern = cardFormat.getPattern();
             String[] figure = cardFormat.getFigure();
-            cardMap.add(pattern[r.nextInt(pattern.length)]
+            cardMap.add(pattern[r.nextInt(pattern.length)].getPattern()
                 + figure[r.nextInt(figure.length)]);
         }
         return cardMap;
