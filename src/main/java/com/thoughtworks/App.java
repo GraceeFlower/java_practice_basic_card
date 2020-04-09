@@ -1,7 +1,7 @@
 package com.thoughtworks;
 
-import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class App {
 
@@ -15,7 +15,7 @@ public class App {
       System.out.println("不在范围(1~52)内哦～请重新输入：");
       numOfCard = sc.nextInt();
     }
-    HashSet<String> cardMap = machine.drawCard(numOfCard);
+    Set<String> cardMap = machine.drawCard(numOfCard);
 
     System.out.println("请查收您的卡片:) ");
     System.out.println(String.join(" ", cardMap));
